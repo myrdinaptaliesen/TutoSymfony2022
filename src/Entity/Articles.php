@@ -27,6 +27,11 @@ class Articles
      */
     private $content;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Categories::class, inversedBy="articles")
+     */
+    private $category;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +57,18 @@ class Articles
     public function setContent(string $content): self
     {
         $this->content = $content;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Categories
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Categories $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }
