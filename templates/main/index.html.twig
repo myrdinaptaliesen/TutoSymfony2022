@@ -9,13 +9,16 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1>Mon super blog</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/wamp64/www/TutoSymfony2022/src/Controller/MainController.php'|file_link(0) }}">src/Controller/MainController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/wamp64/www/TutoSymfony2022/templates/main/index.html.twig'|file_link(0) }}">templates/main/index.html.twig</a></code></li>
-    </ul>
+    {% for article in articles %}
+        <article>
+            <h2>{{article.title}}</h2>
+            <h5>{{article.category.name}}</h5>
+            <p>{{article.content}}</p>
+    </article>
+    {% endfor %}
+    
 </div>
 {% endblock %}
 
